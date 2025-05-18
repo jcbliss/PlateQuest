@@ -12,6 +12,18 @@
       background: #fff;
       color: #000;
     }
+    body.dark {
+      background: #121212;
+      color: #eee;
+    }
+    body.dark .state {
+      background-color: #333;
+      border-color: #555;
+    }
+    body.dark .state.selected {
+      background-color: #2e7d32;
+      border-color: #1b5e20;
+    }
     .center {
       text-align: center;
       margin-top: 20px;
@@ -50,7 +62,7 @@
 </head>
 <body>
   <div class="center">
-    <img src="img_4791.jpeg" alt="PlateQuest Logo" style="max-width:90%; height:auto;" />
+    <img src="platequest-final-logo.jpeg" alt="PlateQuest Logo" style="max-width:90%; height:auto;" />
     <h1>PlateQuest</h1>
     <p><em>Created by JcWoLF76</em></p>
     <button onclick="document.getElementById('game').style.display='block'; this.style.display='none';">
@@ -72,6 +84,10 @@
       <select id="tripSelect"></select>
       <input type="text" id="newTripInput" placeholder="New trip" />
       <button onclick="createTrip()">Create</button>
+    </div>
+
+    <div style="text-align:center; margin-top: 10px;">
+      <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
     </div>
 
     <div class="grid" id="stateGrid"></div>
@@ -241,6 +257,10 @@
       } else {
         alert("Sharing not supported. You can copy and send the file manually.");
       }
+    }
+
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark');
     }
 
     document.getElementById("profileSelect").addEventListener("change", function () {
